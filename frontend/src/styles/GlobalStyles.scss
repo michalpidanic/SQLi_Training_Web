@@ -1,0 +1,22 @@
+.row-center {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.col-center {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.container-bg {
+    background-color: #1c2025;
+    color: #a8b1bd;
+    height: 100%;
+}
+
+.input-bg {
+    background-color: grey !important;
+    color: rgb(17, 17, 17) !important;
+}
