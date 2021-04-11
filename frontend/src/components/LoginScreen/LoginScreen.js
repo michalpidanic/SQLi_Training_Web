@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Container, Row, Col } from 'react-bootstrap'
+import axios from 'axios'
 import LoginForm from '../LoginForm/LoginForm'
 import './LoginScreen.scss'
 
@@ -9,7 +10,8 @@ export default class LoginScreen extends Component {
 
         this.state = {
             username: null,
-            password: null
+            password: null,
+
         }
 
         this.onChange = this.onChange.bind(this)
@@ -29,7 +31,16 @@ export default class LoginScreen extends Component {
     handleLogin(event) {
         event.preventDefault()
 
-        console.log(this.state)
+        axios.post('http://localhost:8000/login/1/',
+            {
+                username: this.state.username,
+                password: this.state.password
+            }
+        ).then(
+            res => { console.log(res) }
+        ).catch(
+            error => { console.log(error) }
+        )
     }
 
     render() {
