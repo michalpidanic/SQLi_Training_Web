@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-d
 
 import HomeScreen from '../components/HomeScreen/HomeScreen'
 import LoginScreen from '../components/LoginScreen/LoginScreen'
+import RegisterScreen from '../components/RegisterScreen/RegisterScreen'
 import Header from '../components/Header/Header'
 
 export default class RouterComponent extends Component {
@@ -15,8 +16,7 @@ export default class RouterComponent extends Component {
                     <Route path='/login1' render={(props) => (<LoginScreen {...props} screenNum='1' />)} />
                     <Route path='/login2' render={(props) => (<LoginScreen {...props} screenNum='2' />)} />
                     <Route path='/login3' render={(props) => (<LoginScreen {...props} screenNum='3' />)} />
-                    <Route path='/login4' render={(props) => (<LoginScreen {...props} screenNum='4' />)} />
-                    <Route path='/login5' render={(props) => (<LoginScreen {...props} screenNum='5' />)} />
+                    <Route path='/register' render={(props) => (<RegisterScreen {...props} />)} />
                     <Redirect to='/' />
                 </Switch>
             </Router>

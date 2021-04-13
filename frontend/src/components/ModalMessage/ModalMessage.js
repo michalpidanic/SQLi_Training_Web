@@ -16,11 +16,11 @@ export default class ModalMessage extends Component {
             >
                 <Modal.Header>
                     <h2>
-                        Login successful!
+                        {this.props.title}
                     </h2>
                 </Modal.Header>
                 <Modal.Body>
-                    <p>Your login was successful, close this modal be continue.</p>
+                    <p>{this.props.text}</p>
                 </Modal.Body>
                 <Modal.Footer>
                     <Button variant='danger' onClick={this.props.handleClose}>

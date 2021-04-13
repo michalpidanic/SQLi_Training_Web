@@ -40,7 +40,10 @@ class LoginView(View):
 
     # secure login1
     def login2(self, request):
-        sql_query = '''SELECT * FROM apps_users WHERE username='{}' AND password='{}';'''.format(
+
+        sql_query = '''
+        SELECT * FROM apps_users WHERE username='{}' AND password='{}';
+        '''.format(
             self.escape(json.loads(request.body).get('username')),
             self.escape(json.loads(request.body).get('password'))
         )

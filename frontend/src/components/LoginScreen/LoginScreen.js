@@ -66,8 +66,20 @@ export default class LoginScreen extends Component {
 
     render() {
         const alert = this.state.showAlert ?
-            <Alert variant='danger'>Invalid credentials!</Alert> :
+            <Alert className='alert-box row-center' variant='danger'>Invalid credentials!</Alert> :
             null
+
+        const description = [
+            `Login 1 - basic vulnerable login function that finds, if given username and password match
+            in database. From fronted the data are sent to backend where basic SQL 
+            query without validation, quote escape or anything else is performed.`,
+            `Login 2 - basic login function using same SQL query as Login 1, but data 
+            that come to backend are escaped first and then put as parameters to SQL query.
+            Basic SQLi doensn't work here anymore`,
+            `Login 3 - login function secured against SQLi attacks. Function works identically as 
+            other login functions used on this website, so it finds if given username and password 
+            match in database, but instead of SQL, django ORM is used.`
+        ]
 
         return (
             <Container fluid className='container-bg'>
@@ -77,12 +89,16 @@ export default class LoginScreen extends Component {
                             <h1 className='login-title'>Login {this.props.screenNum}</h1>
                         </Row>
                         <Row className='row-center'>
-                            <p>
-                                Description
-                            </p>
+                            <Col md={{ span: 4 }}>
+                                <p className='description'>
+                                    {description[this.props.screenNum - 1]}
+                                </p>
+                            </Col>
                         </Row>
                         <Row className='row-center'>
-                            {alert}
+                            <Col md={{ span: 4 }}>
+                                {alert}
+                            </Col>
                         </Row>
                         <Row className='row-center'>
                             <LoginForm handleLogin={this.handleLogin} onChange={this.onChange} />
@@ -90,6 +106,8 @@ export default class LoginScreen extends Component {
                         <ModalMessage
                             show={this.state.showModal}
                             handleClose={this.handleClose}
+                            title='Login successful!'
+                            text='Your login was successful, close this message to continue.'
                         />
                     </Col>
                 </Row>

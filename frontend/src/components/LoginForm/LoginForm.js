@@ -35,7 +35,7 @@ export default class LoginForm extends Component {
                     {/* username */}
                     <Form.Group>
                         <Form.Label>
-                            <b>Login</b>
+                            <b>Username</b>
                         </Form.Label>
                         <Form.Control
                             name='username'
